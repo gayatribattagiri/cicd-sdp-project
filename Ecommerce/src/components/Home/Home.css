@@ -10,7 +10,7 @@
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.15);
   --transition: all 0.3s ease;
-  --fast-transition: all 0.15s ease;
+  --fast-transition: all 0.13s ease;
 }
 
 * {
