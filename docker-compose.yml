@@ -1,0 +1,53 @@
+version: "3.9"
+
+services:
+  mysqldb:
+    image: mysql:8
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: docker
+      MYSQL_DATABASE: klustudentdb
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - springboot-mysql-net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile-backend
+    image: rahuletyala/docker-backend:latest
+    container_name: springboot
+    ports:
+      - "2025:2000"
+    depends_on:
+      - mysqldb
+    restart: on-failure
+    networks:
+      - springboot-mysql-net
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/klustudentdb
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: docker
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile-frontend
+    image: rahuletyala/docker-frontend:latest
+    container_name: react
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: on-failure
+    networks:
+      - springboot-mysql-net
+
+volumes:
+  mysql_data:
+
+networks:
+  springboot-mysql-net:

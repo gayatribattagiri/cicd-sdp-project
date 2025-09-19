@@ -1,0 +1,14 @@
+package com.fooddelivery.klu;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class FooddeliveryApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(FooddeliveryApplication.class, args);
+		System.out.println("cicd project is running");
+	}
+
+}
