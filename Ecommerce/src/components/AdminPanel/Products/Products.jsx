@@ -3,33 +3,6 @@ import "./Products.css";
 import Navbar from "../../Navbar/Navbar";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
-<<<<<<< HEAD
-console.log(BASE_URL);
-=======
-// console.log(BASE_URL)
-
-
-const DEFAULT_CATEGORIES = [
-  "Prepared Foods",
-  "Canned Foods & Soups",
-  "Bakery",
-  "Dairy & Eggs",
-  "Frozen",
-  "Meat & Seafood",
-  "Snacks & Confectionery",
-  "Beverages",
-  "Grains & Pulses",
-  "Fruits",
-  "Vegetables",
-  "Spices & Condiments",
-  "Cooking Essentials",
-  "Household Supplies",
-  "Noodles"
-];
-
-const CATEGORIES_STORAGE_KEY = "categories";
->>>>>>> refs/remotes/origin2/main
-
 class Products extends Component {
   state = {
     products: [],
