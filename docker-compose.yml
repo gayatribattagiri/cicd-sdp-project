@@ -45,6 +45,9 @@ services:
     restart: on-failure
     networks:
       - springboot-mysql-net
+    environment:
+      # Pass backend URL for Vite build (important!)
+      VITE_API_URL: http://backend:2000
 
 volumes:
   mysql_data:
