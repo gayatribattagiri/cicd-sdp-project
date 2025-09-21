@@ -3,7 +3,7 @@ import Cookie from "js-cookie";
 import { Navigate } from "react-router-dom";
 import "./login.css";
 
-const RAW_BASE = import.meta.env.VITE_BASE_URL || "http://localhost:8080/api";
+const RAW_BASE = import.meta.env.VITE_BASE_URL || "http://localhost:8082/api";
 const API_BASE = RAW_BASE.replace(/\/$/, "");
 const AUTH_BASE = API_BASE; // now backend exposes /api/login and /api/register
 // console.log(API_BASE)

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/orders")
-@CrossOrigin
+@CrossOrigin("*")
 public class OrderController {
 
     private final OrderRepository orderRepository;
