@@ -5,8 +5,8 @@ services:
     image: mysql:8
     container_name: mysql-db
     environment:
-      MYSQL_ROOT_PASSWORD: docker
-      MYSQL_DATABASE: klustudentdb
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ecommerce
     ports:
       - "3307:3306"
     volumes:
@@ -16,27 +16,27 @@ services:
 
   backend:
     build:
-      context: ./backend
-      dockerfile: Dockerfile-backend
-    image: rahuletyala/docker-backend:latest
+      context: ./Ecommerce-backend/fooddelivery
+      dockerfile: backend.Dockerfile
+    image: gayatribattagiri/backend:latest
     container_name: springboot
     ports:
-      - "2025:2000"
+      - "2025:8082"
     depends_on:
       - mysqldb
     restart: on-failure
     networks:
       - springboot-mysql-net
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/klustudentdb
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/ecommerce
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: docker
+      SPRING_DATASOURCE_PASSWORD: root
 
   frontend:
     build:
-      context: ./frontend
-      dockerfile: Dockerfile-frontend
-    image: rahuletyala/docker-frontend:latest
+      context: ./Ecommerce
+      dockerfile: frontend.Dockerfile
+    image: gayatribattagiri/frontend:latest
     container_name: react
     ports:
       - "3000:80"
@@ -47,7 +47,7 @@ services:
       - springboot-mysql-net
     environment:
       # Pass backend URL for Vite build (important!)
-      VITE_API_URL: http://backend:2000
+      VITE_API_URL: http://backend:8082
 
 volumes:
   mysql_data:

@@ -155,9 +155,10 @@ class Login extends Component {
           <div className="login-container">
             <div className="illustration">
               <img
-                src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-login-img.png"
-                alt="Illustration"
-              />
+  src="https://static.vecteezy.com/system/resources/thumbnails/036/409/496/small_2x/delivery-man-riding-a-red-scooter-cartoon-illustration-illustration-isolated-on-white-background-vector.jpg"
+  alt="Illustration"
+/>
+
             </div>
 
             <div className="login-form">
